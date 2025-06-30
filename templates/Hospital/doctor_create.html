@@ -1,0 +1,11 @@
+<html>
+    <head><title>Add Doctor</title></head>
+<body>
+    <h1>New Doctor</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

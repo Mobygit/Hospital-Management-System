@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Result</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="POST" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+
+    <h1>Lab Result</h1>
+
+    <a href="{% url 'laboratory_create' %}">Upload New Lab Result</a>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Test Name</th>
+            <th>Test Date</th>
+            <th>Result</th>
+            <th>Report File</th>
+        </tr>
+
+        {% for result in results %}
+        <tr>
+            <td>{{ result.name }}</td>
+            <td>{{ result.test_name }}</td>
+            <td>{{ result.test_date }}</td>
+            <td>{{ result.result }}</td>
+            <td>
+                {% if result.report_file %}
+                    <a href="{{ result.report_file.url }}" target="_blank">View</a>
+                {% else %}
+                    No File
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No lab results found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

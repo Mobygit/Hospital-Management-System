@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Bill</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="POST" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+
+    <h1>Patient Bills</h1>
+
+    <p><a href="{% url 'billing_create' %}">Upload New Bill</a></p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Date Issued</th>
+                <th>Service Description</th>
+                <th>Amount (Rs)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bill in bills %}
+            <tr>
+                <td>{{ bill.patient }}</td>
+                <td>{{ bill.date_issued }}</td>
+                <td>{{ bill.service_description }}</td>
+                <td>{{ bill.amount }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No bills found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

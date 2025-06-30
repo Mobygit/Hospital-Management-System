@@ -1,0 +1,317 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Page Title -->
+    <title>Lab Appointment</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.png' %}" type="image/x-icon" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/animate-3.7.0.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome-4.7.0.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-4.1.3.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl-carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/jquery.datetimepicker.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/linearicons.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+</head>
+
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Area Starts -->
+    <header class="header-area">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 d-md-flex">
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> call us now! +91 1234567890</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> mobycare@gmail.com</h6>
+                        <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                        <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="" title="" /></a>
+                    </div>
+                    <nav id="nav-menu-container">
+                        <ul class="nav-menu">
+                            <li class="menu-active"><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'departments' %}">Departments</a></li>
+                            <li><a href="{% url 'doctors' %}">Doctors</a></li>
+                            <li class="menu-has-children">
+                                <a href="">Appointments</a>
+                                <ul>
+                                    <li><a href="{% url 'doctor_appointment' %}">Doctor Appointment</a></li>
+                                    <li><a href="{% url 'lab_appointment' %}">Lab Appointment</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-has-children">
+                                <a href="">Others</a>
+                                <ul>
+                                    <li><a href="{% url 'career' %}">Career</a></li>
+                                    <li><a href="{% url 'founder' %}">Founder Page</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+    <!-- Banner Area Starts -->
+    <section class="banner-area other-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Lab Appointment</h1>
+                    <a href="index.html">Home</a>
+                    <span>|</span>
+                    <a href="lab_appointment.html">Lab Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+
+    <!-- Lab Appointment & Tracker Section -->
+    <section class="feature-area section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Lab Appointment Form -->
+                    <h2 class="mb-4 text-center">Book Lab Appointment</h2>
+                    <form method="post" action="{% url 'lab_appointment' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="patient_name">Patient Name</label>
+                            <input type="text" class="form-control" id="patient_name" name="patient_name" required />
+                        </div>
+                        <div class="form-group">
+                           <label for="patient_age">Patient Age</label>
+                           <input type="number" class="form-control" id="patient_age" name="patient_age" min="0" max="120" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="contact_phone">Contact Phone</label>
+                            <input type="tel" class="form-control" id="contact_phone" name="contact_phone" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="lab_test">Choose Test</label>
+                            <select class="form-control" id="lab_test" name="lab_test" required>
+                                <option value="" disabled selected>-- Select Test --</option>
+
+                                <!-- Glucose Tests -->
+                                <optgroup label="Glucose Tests">
+                                    <option value="Glucose Fasting">Glucose Fasting</option>
+                                    <option value="Glucose Post Prandial">Glucose Post Prandial</option>
+                                    <option value="Glucose Random">Glucose Random</option>
+                                    <option value="Glucose Tolerance Test (GTT)">Glucose Tolerance Test (GTT)</option>
+                                </optgroup>
+
+                                <!-- Liver Function Test (LFT) -->
+                                <optgroup label="Liver Function Test (LFT)">
+                                    <option value="Liver Function Test Full Package">Liver Function Test Full Package</option>
+                                    <option value="Alanine Aminotransferase (ALT)">Alanine Aminotransferase (ALT)</option>
+                                    <option value="Aspartate Aminotransferase (AST)">Aspartate Aminotransferase (AST)</option>
+                                    <option value="Alkaline Phosphatase (ALP)">Alkaline Phosphatase (ALP)</option>
+                                    <option value="Bilirubin (Total & Direct)">Bilirubin (Total & Direct)</option>
+                                    <option value="Gamma-Glutamyl Transferase (GGT)">Gamma-Glutamyl Transferase (GGT)</option>
+                                    <option value="Albumin">Albumin</option>
+                                    <option value="Total Protein">Total Protein</option>
+                                    <option value="Lactate Dehydrogenase (LDH)">Lactate Dehydrogenase (LDH)</option>
+                                </optgroup>
+
+                                <!-- Renal Function Test (RFT) -->
+                                <optgroup label="Renal Function Test (RFT)">
+                                    <option value="Renal Function Test Full Package">Renal Function Test Full Package</option>
+                                    <option value="Blood Urea Nitrogen (BUN)">Blood Urea Nitrogen (BUN)</option>
+                                    <option value="Creatinine">Creatinine</option>
+                                    <option value="Sodium">Sodium</option>
+                                    <option value="Potassium">Potassium</option>
+                                    <option value="Chloride">Chloride</option>
+                                    <option value="Uric Acid">Uric Acid</option>
+                                    <option value="Glomerular Filtration Rate (GFR)">Glomerular Filtration Rate (GFR)</option>
+                                </optgroup>
+
+                                <!-- Cholesterol Full Package -->
+                                <optgroup label="Cholesterol Full Package">
+                                    <option value="Cholesterol Full Package">Cholesterol Full Package</option>
+                                    <option value="Total Cholesterol">Total Cholesterol</option>
+                                    <option value="LDL Cholesterol">LDL Cholesterol</option>
+                                    <option value="HDL Cholesterol">HDL Cholesterol</option>
+                                    <option value="Triglycerides">Triglycerides</option>
+                                    <option value="VLDL">VLDL</option>
+                                    <option value="Cholesterol to HDL ratio">Cholesterol to HDL ratio</option>
+                                    <option value="Non-HDL Cholesterol">Non-HDL Cholesterol</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="appointment_date">Appointment Date</label>
+                            <input type="date" class="form-control" id="appointment_date" name="appointment_date" required />
+                        </div>
+                        <button type="submit" class="template-btn d-block mx-auto">Book Appointment</button>
+                    </form>
+
+                    <hr class="my-5" />
+                    {% if messages %}
+  <div class="container mt-3">
+    {% for message in messages %}
+      <div class="alert 
+          {% if message.tags %}
+            alert-{{ message.tags }}
+          {% else %}
+            alert-info
+          {% endif %}
+          alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+
+                    <!-- Lab Result Tracker -->
+                    <h2 class="mb-4 text-center">Track Your Lab Result</h2>
+                    <form method="post" action="{% url 'lab_appointment' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="mobile_number">Mobile Number</label>
+                            <input type="tel" class="form-control" id="mobile_number" name="mobile_number" required />
+                        </div>
+                        <button type="submit" class="template-btn d-block mx-auto">Track</button>
+                    </form>
+
+                    {% if lab_status %}
+                    <div class="mt-4 text-center">
+                        <h4>Lab Status:
+                            <span class="{% if lab_status.status == 'Done' %}text-success{% else %}text-warning{% endif %}">
+                                {{ lab_status.status }}
+                            </span>
+                        </h4>
+
+                        {% if lab_status.status == 'Done' and lab_status.report_file %}
+                        <a href="{{ lab_status.report_file.url }}" target="_blank" class="template-btn mt-3">Preview Report</a>
+                        <a href="{{ lab_status.report_file.url }}" download class="template-btn mt-2">Download Report</a>
+                        {% elif lab_status.status == 'Done' %}
+                        <p>Report not available yet.</p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area Starts -->
+    <footer class="footer-area section-padding">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">Top Services</h3>
+                            <ul>
+                                <li class="mb-2"><a href="#">Heart Surgery</a></li>
+                                <li class="mb-2"><a href="#">Plastic & Reconstructive Surgery</a></li>
+                                <li class="mb-2"><a href="#">Orthodontics</a></li>
+                                <li><a href="#">Blood Tests & Diagnostics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xl-5 offset-xl-1 col-lg-6">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">Newsletter</h3>
+                            <p>You can trust us. We only send promo offers, not a single spam.</p>
+                            <form action="#" class="form-wrap mt-4">
+                                <input type="email" placeholder="Your Email Address" required />
+                                <button class="btn btn-yellow">Subscribe</button>
+                            </form>
+                        </div>
+                    </div> -->
+                    <div class="col-xl-3 col-lg-3 ml-xl-auto">
+                            <h3 class="mb-4">Instagram Feed</h3>
+                            <ul class="instafeed d-flex flex-wrap">
+                                <img src="{% static 'assets/images/feed9.jpeg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed10.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed03.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed4.png' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed05.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed06.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed07.jpeg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed08.jpeg' %}" alt="feed">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container text-center">
+                <!-- <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12"> -->
+                        <p>&copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o"></i> by MobyCare</p></p>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="social-icons">
+                            <ul>
+                                <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+    <!-- JS Files -->
+    <script src="{% static 'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/bootstrap-4.1.3.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/owl-carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.datetimepicker.full.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+
+</html>

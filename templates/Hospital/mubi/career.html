@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Career at MobyCare</title>
+  <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.png' %}" type="image/x-icon" />
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap-4.1.3.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/font-awesome-4.7.0.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+  <style>
+    .career-section { padding: 60px 0; }
+    .career-box {
+      border: 2px solid #224972;
+      border-radius: 10px;
+      padding: 30px;
+      background-color: #f9faff;
+      box-shadow: 0 0 10px rgba(0,123,255,0.1);
+    }
+    .form-control { border: 1.5px solid #224972; }
+    .form-control:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 6px rgba(0,86,179,0.5);
+    }
+    .quote-section {
+      background-color: #e8f0fe;
+      padding: 40px 30px;
+      margin-bottom: 40px;
+      border-left: 5px solid #224972;
+    }
+    .quote-section h4 { font-weight: bold; color: #004085; }
+    .quote-section p { font-size: 1.1rem; color: #333; }
+  </style>
+</head>
+
+<body>
+  <!-- Header Area Starts -->
+  <header class="header-area">
+    <div class="header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 d-md-flex">
+            <h6 class="mr-3"><i class="fa fa-mobile mr-2"></i> call us now! +91 1234567890</h6>
+            <h6 class="mr-3"><i class="fa fa-envelope-o mr-2"></i> mobycare@gmail.com</h6>
+            <h6><i class="fa fa-map-marker mr-2"></i> Find our Location</h6>
+          </div>
+          <div class="col-lg-3">
+            <div class="social-links">
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="header" id="home">
+      <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+          <div id="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'assets/images/logo/logo.png' %}" alt="Logo" /></a>
+          </div>
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li class="menu-active"><a href="{% url 'career' %}">Career</a></li>
+              <li><a href="{% url 'doctor_appointment' %}">Appointment</a></li>
+              <li><a href="{% url 'departments' %}">Departments</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header Area End -->
+
+  <!-- Banner Area Starts -->
+  <section class="banner-area other-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Join Our Team</h1>
+          <a href="{% url 'index' %}">Home</a> <span>|</span> <a href="{% url 'career' %}">Career</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Banner Area End -->
+
+  <!-- Quote Section -->
+  <section class="quote-section text-center">
+    <div class="container">
+      <h4>Why Join Mobycare?</h4>
+      <p>"At MobyCare, we value innovation, compassion, and growth. Join a healthcare team that puts people first, empowers professionals, and transforms lives through technology and care."</p>
+      <img src="{% static 'assets/images/why-join.jpg' %}" alt="Join MobyCare Team" class="img-fluid rounded mt-3" style="max-height: 250px;">
+    </div>
+  </section>
+
+  <!-- Career Form -->
+  <section class="career-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="career-box">
+            <h2 class="text-center mb-4">Submit Your Resume</h2>
+            <form id="careerForm" method="post" action="{% url 'career' %}" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" class="form-control" required placeholder="Enter your full name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required placeholder="Enter your phone number">
+              </div>
+              <div class="form-group">
+                <label for="role">Role You Are Applying For</label>
+                <select id="role" name="role" class="form-control" required>
+                  <option value="" disabled selected>-- Select Role --</option>
+                  <option>Doctor</option>
+                  <option>Nurse</option>
+                  <option>Laboratory Technician</option>
+                  <option>Pharmacist</option>
+                  <option>Receptionist</option>
+                  <option>Software Engineer</option>
+                  <option>Data Analyst</option>
+                  <option>Admin</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cv_file">Upload Your CV (PDF/DOC)</label>
+                <input type="file" id="cv_file" name="cv_file" class="form-control" required accept=".pdf,.doc,.docx">
+              </div>
+              <button type="submit" class="template-btn d-block mx-auto">Submit</button>
+            </form>
+            <div id="successMessage" class="alert alert-success mt-4 text-center" style="display:none;">
+              Uploaded successfully! We'll contact you if eligible.
+            </div>
+            <div id="backHome" class="text-center mt-3" style="display:none;">
+              <a href="{% url 'index' %}" class="template-btn">Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Area Starts -->
+  <footer class="footer-area section-padding">
+    <div class="footer-widget">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-2 col-lg-3">
+            <h3 class="mb-4">Top Service</h3>
+            <ul>
+              <li><a href="#">Health Packages</a></li>
+              <li><a href="#">Home Sample Collection</a></li>
+              <li><a href="#">Orthodontics</a></li>
+              <li><a href="#">Blood Tests & Diagnostics</a></li>
+            </ul>
+          </div>
+          <!-- <div class="col-xl-5 offset-xl-1 col-lg-6">
+            <h3 class="mb-4">Newsletter</h3>
+            <p>You can trust us. We only send promo offers, not a single spam.</p>
+            <form action="#" class="form-wrap mt-4">
+              <input type="email" placeholder="Your Email Address" required />
+              <button class="btn btn-yellow">Subscribe</button>
+            </form>
+          </div> -->
+          <div class="col-xl-3 col-lg-3 ml-xl-auto">
+            <h3 class="mb-4">Instagram Feed</h3>
+            <div class="instafeed d-flex flex-wrap">
+              <!-- Example feed images -->
+              <img src="{% static 'assets/images/feed9.jpeg' %}" alt="feed">
+              <img src="{% static 'assets/images/feed10.jpg' %}" alt="feed">
+              <img src="{% static 'assets/images/feed03.jpg' %}" alt="feed">
+              <img src="{% static 'assets/images/feed4.png' %}" alt="feed">
+              <img src="{% static 'assets/images/feed05.jpg' %}" alt="feed">
+              <img src="{% static 'assets/images/feed06.jpg' %}" alt="feed">
+              <img src="{% static 'assets/images/feed07.jpeg' %}" alt="feed">
+              <img src="{% static 'assets/images/feed08.jpeg' %}" alt="feed">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <br><br>
+    <div class="copyright-area">
+      <div class="container text-center">
+            <p class="mb-2">&copy; {% now "Y" %} All rights reserved | Made with <i class="fa fa-heart-o"></i> by MobyCare</p>
+             <ul class="social-icons" style="list-style: none; padding: 0; margin: 0 auto; display: inline-flex; gap: 15px;">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer Area End -->
+
+  <!-- JS Files -->
+  <script src="{% static 'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+  <script src="{% static 'assets/js/vendor/bootstrap-4.1.3.min.js' %}"></script>
+  <script>
+    $('#careerForm').on('submit', function(e) {
+      e.preventDefault();
+
+      var formData = new FormData(this);
+
+      $.ajax({
+        url: "{% url 'career' %}",  // Submit to current URL
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+          $('#careerForm').hide();
+          $('#successMessage').show();
+          $('#backHome').show();
+        },
+    error: function(xhr) {
+      if(xhr.status === 400) {
+        let errors = xhr.responseJSON.errors;
+        let errorMsg = 'Please fix the following errors:\n';
+        for (let field in errors) {
+          errorMsg += `${field}: ${errors[field].join(', ')}\n`;
+        }
+        alert(errorMsg);
+      } else {
+        alert("There was an error submitting your application. Please try again.");
+      }
+    }
+    })
+    });

@@ -1,0 +1,11 @@
+<html>
+    <head><title>Create Bill</title></head>
+<body>
+    <h1>Create New Bill</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

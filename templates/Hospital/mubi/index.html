@@ -1,0 +1,540 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Page Title -->
+    <title>Mobycare</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.png' %}" type="image/x-icon">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/animate-3.7.0.css ' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome-4.7.0.min.css ' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap-4.1.3.min.css ' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl-carousel.min.css ' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery.datetimepicker.min.css ' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/linearicons.css ' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css ' %}">
+</head>
+<body>
+    <!-- Preloader Starts -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Header Area Starts -->
+    <header class="header-area">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 d-md-flex">
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> call us now! +91 1234567890</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> mobycare@gmail.com</h6>
+                        <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="" title="" /></a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'departments' %}">Departments</a></li>
+                        <li><a href="{% url 'doctors' %}">doctors</a></li>
+                        <li class="menu-has-children"><a href="">Appointments</a>
+                            <ul>
+                                <li><a href="{% url 'doctor_appointment' %}">doctor appointment</a></li>
+                                <li><a href="{% url 'lab_appointment' %}">lab appointment</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-has-children"><a href="">Others</a>
+                            <ul>
+                                <li><a href="{% url 'career' %}">career</a></li>
+                                <li><a href="{% url 'founder' %}">Founder Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>			          				          
+                    </ul>
+                </nav><!-- #nav-menu-container -->		    		
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+    <!-- Banner Area Starts -->
+    <section class="banner-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h4>Caring for better life</h4>
+                    <h1>Leading the way in medical excellence</h1>
+                    <p>Earth nurtures growth and health.
+A place where life flourishes and thrives.
+Bringing together beginnings for a stronger tomorrow.</p>
+                    <a href="{% url 'departments' %}" class="template-btn mt-3">take Departments</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Area End -->
+
+    <!-- Feature Area Starts -->
+    <section class="feature-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding">
+                        <img src="{% static 'assets/images/feature1.png' %}" alt="">
+                        <h3>advance technology</h3>
+                        <p class="pt-3">"From AI to robotics, advanced technology is reshaping the way we understand and treat diseases."</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding mt-4 mt-md-0">
+                        <img src="{% static 'assets/images/feature2.png' %}" alt="">
+                        <h3>comfortable place</h3>
+                        <p class="pt-3">"A comforting place is where the heart feels at home and the soul finds peace."</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                        <img src="{% static 'assets/images/feature3.png' %}" alt="">
+                        <h3>quality equipment</h3>
+                        <p class="pt-3">"Precision equipment for quality care — because every life matters."</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                        <img src="{% static 'assets/images/feature4.png' %}" alt="">
+                        <h3>friendly staff</h3>
+                        <p class="pt-3">“Caring hearts, friendly hands — here for you.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Feature Area End -->
+
+    <!-- Welcome Area Starts -->
+    <section class="welcome-area section-padding3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 align-self-center">
+                    <div class="welcome-img">
+                        <img src="{% static 'assets/images/welcome.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="welcome-text mt-5 mt-lg-0">
+                        <h2>Welcome to our clinic</h2>
+                        <p class="pt-3">Where compassion meets care, and every life matters. We are dedicated to nurturing your health with advanced expertise and heartfelt support.</p>
+                        <p>Our clinic is a place of healing and hope, where cutting-edge technology and friendly staff come together to ensure your well-being every step of the way.</p>
+                        <!-- <a href="#" class="template-btn mt-3">learn more</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Welcome Area End -->
+
+    <!-- Department Area Starts -->
+    <section class="department-area section-padding4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Popular department</h2>
+                        <p>Explore our specialized departments offering expert care and advanced treatments tailored to your health needs. Experience comprehensive services designed to support your well-being at every stage.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="department-slider owl-carousel">
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{% static 'assets/images/department1.jpg' %}" alt="" class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="#"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>cardiac clinic</h3>
+                                <p>Providing expert care for heart health with advanced diagnostics and personalized treatment plans to ensure your well-being and peace of mind.</p>
+                            </div>
+                        </div>
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{% static 'assets/images/department2.jpg' %}" alt="" class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="deparments.html"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>plastic surgery</h3>
+                                <p>Offering innovative and precise cosmetic and reconstructive procedures to enhance your natural beauty and restore confidence.</p>
+                            </div>
+                        </div>
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{% static 'assets/images/department3.jpg' %}" alt="" class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="deparments.html"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>dental clinic</h3>
+                                <p>Providing comprehensive dental care with advanced treatments for a healthy, radiant smile.</p>
+                            </div>
+                        </div>
+                        <div class="single-slide">
+                            <div class="slide-img">
+                                <img src="{% static 'assets/images/department4.jpg' %}" alt="" class="img-fluid">
+                                <div class="hover-state">
+                                    <a href="deparments.html"><i class="fa fa-stethoscope"></i></a>
+                                </div>
+                            </div>
+                            <div class="single-department item-padding text-center">
+                                <h3>laboratory</h3>
+                                <p>Equipped with cutting-edge technology, our laboratory delivers fast, accurate diagnostic results to support effective treatment and improve patient outcomes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Department Area Starts -->
+
+    <!-- Patient Area Starts -->
+    <section class="patient-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Patient are saying</h2>
+                        <p> “Our patients are at the heart of everything we do. Here’s what they have to say about their care experience with us.”</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="single-patient mb-4">
+                        <img src="{% static 'assets/images/patient1.png' %}" alt="">
+                        <h3>daren jhonson</h3>
+                        <p class="pt-3">“The care I received was truly exceptional. The staff went above and beyond to make me feel comfortable and informed every step of the way. I felt genuinely supported throughout my treatment, which made all the difference.”</p>
+                    </div>
+                    <div class="single-patient">
+                        <img src="{% static 'assets/images/patient2.png' %}" alt="">
+                        <h3>black heiden</h3>
+                        <p class="pt-3">“From the moment I walked in, I experienced kindness and professionalism. The doctors listened carefully and addressed all my concerns with patience and empathy. Thanks to their dedication, my health has greatly improved.”</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 align-self-center">
+    <div class="departments-form text-center mt-5 mt-lg-0 p-4 shadow" style="background: #f9f9f9; border-radius: 10px;">
+        <h3 class="mb-4 text-primary">Our Vision</h3>
+        <p class="mb-4" style="color: #555;">
+            To be the leading healthcare provider recognized for exceptional patient care, pioneering medical research, and community engagement
+        </p>
+        <hr style="border-top: 1px solid #ddd;">
+        <h3 class="mt-4 mb-3 text-primary">Our Mission</h3>
+        <p style="color: #555;">
+            Deliver patient-centered, comprehensive healthcare services.
+Invest in technology and innovation for better outcomes.
+Empower our team to uphold excellence and integrity.
+Engage with communities to promote wellness and education
+        </p>
+    </div>
+</div>
+
+                
+                <!-- <div class="col-lg-5 offset-lg-1 align-self-center">
+                    <div class="Departments-form text-center mt-5 mt-lg-0">
+                        <h3 class="mb-5">Departments now</h3>
+                        <form action="#">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" required> 
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="datepicker" placeholder="Date" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Date'" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" cols="20" rows="7"  placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required></textarea>
+                            </div>
+                            <a href="#" class="template-btn">Departments now</a>
+                        </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Patient Area Starts -->
+
+    <!-- Specialist Area Starts -->
+    <section class="specialist-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Our specialist</h2>
+                        <p>Meet our team of highly skilled and compassionate medical professionals, dedicated to delivering exceptional care through innovation, experience, and a patient-first approach</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor mb-4 mb-lg-0">
+                        <div class="doctor-img">
+                            <img src="{% static 'assets/images/doctor1.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>dr. ethel davis</h3>
+                                <h6>cardiologist</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>“With over 10 years of experience in interventional cardiology, Dr. Ethel Davis combines precision diagnostics with compassionate care to keep every heart beating strong.”</p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor mb-4 mb-lg-0">
+                        <div class="doctor-img">
+                            <img src="{% static 'assets/images/doctor2.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>Dr. dand mories</h3>
+                                <h6>plastic surgery</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>“Known for his meticulous techniques and artistic approach, Dr. Dand Mories transforms lives through reconstructive and aesthetic plastic surgery with natural-looking results.”</p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor mb-4 mb-sm-0">
+                        <div class="doctor-img">
+                            <img src="{% static 'assets/images/doctor3.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>Dr. align board</h3>
+                                <h6>dentist</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>“From routine checkups to advanced procedures, Dr. Align Board gentle care and patient-first approach ensure healthier, brighter smiles every day.”</p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-doctor">
+                        <div class="doctor-img">
+                            <img src="{% static 'assets/images/doctor4.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="content-area">
+                            <div class="doctor-name text-center">
+                                <h3>Dr. jeson limit</h3>
+                                <h6>pathologist</h6>
+                            </div>
+                            <div class="doctor-text text-center">
+                                <p>“Dr. jeson limit our laboratory with a commitment to diagnostic accuracy, playing a vital role behind the scenes to guide every treatment with confidence.”</p>
+                                <ul class="doctor-icon">
+                                    <li><a href="#"><i class="fa fa-facebook"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i><a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i><a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Specialist Area Starts -->
+
+    <!-- Hotline Area Starts -->
+    <section class="hotline-area text-center section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Emergency hotline</h2>
+                    <span>(+01) – 256 567 550</span>
+                    <p class="pt-3">We provide 24/7 customer support. Please feel free to contact us <br>for emergency case.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hotline Area End -->
+
+    <!-- News Area Starts -->
+     <section class="health-tips section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-top">
+          <h2>Healthy Living Tips</h2>
+          <p>Discover essential tips to maintain a healthy heart, keep your oral hygiene in check, and enjoy a balanced diet for overall wellness.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-4 text-center">
+        <div class="single-tip">
+          <i class="fa fa-heartbeat fa-3x mb-3" aria-hidden="true"></i>
+          <h4>Cardio Health</h4>
+          <p>Engage in regular aerobic exercises like walking, cycling, or swimming to strengthen your heart and improve circulation. Remember, a healthy heart means a healthy life.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 text-center">
+        <div class="single-tip">
+          <i class="fa fa-smile-o fa-3x mb-3" aria-hidden="true"></i>
+          <h4>Oral Hygiene</h4>
+          <p>Brush twice daily, floss regularly, and visit your dentist to maintain a bright smile and prevent gum diseases. Oral care is key to overall health.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 text-center">
+        <div class="single-tip">
+          <i class="fa fa-leaf fa-3x mb-3" aria-hidden="true"></i>
+          <h4>Good Diet</h4>
+          <p>Eat a variety of fruits, vegetables, whole grains, and lean proteins. Limit processed foods and sugars to fuel your body with essential nutrients.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+    <!-- Footer Area Starts -->
+    <footer class="footer-area section-padding">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-3">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">Top Services</h3>
+                            <ul>
+                                <li class="mb-2"><a href="#">Heart Surgery</a></li>
+                                <li class="mb-2"><a href="#">Plastic & Reconstructive Surgery</a></li>
+                                <li class="mb-2"><a href="#">Orthodontics</a></li>
+                                <li><a href="#">Blood Tests & Diagnostics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 offset-xl-1 col-lg-6">
+                        <div class="single-widget-home mb-5 mb-lg-0">
+                            <h3 class="mb-4">newsletter</h3>
+                            <p class="mb-4">You can trust us. we only send promo offers, not a single.</p>  
+                            <form action="#">
+                                <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email here'" required>
+                                <button type="submit" class="template-btn">subscribe now</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 offset-xl-1 col-lg-3">
+                        <div class="single-widge-home">
+                            <h3 class="mb-4">instagram feed</h3>
+                            <div class="feed">
+                                <img src="{% static 'assets/images/feed9.jpeg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed10.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed03.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed4.png' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed05.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed06.jpg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed07.jpeg' %}" alt="feed">
+                                <img src="{% static 'assets/images/feed08.jpeg' %}" alt="feed">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <span>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o"></i> by MobyCare</p></a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
+
+
+    <!-- Javascript -->
+    <script src="{% static 'assets/js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="{% static 'assets/js/vendor/bootstrap-4.1.3.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/owl-carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.datetimepicker.full.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/superfish.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

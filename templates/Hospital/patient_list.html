@@ -1,0 +1,62 @@
+<!-- my code -->
+
+<!-- <html>
+    <head><title>Patient List</title></head>
+<body>
+    <h1>All Patients</h1>
+    <a href="{% url 'patient_create' %}">Add New Patient</a>
+    <table>
+        <tr><th>Name</th><th>Email</th><th>Contact</th></tr>
+        {% for patient in patients %}
+        <tr>
+            <td>{{patient.First_name}} {{patient.Last_name }}</td>
+            <td>{{patient.Email}}</td>
+            <td>{{patient.Contact_number}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+{% else %}
+    <p><a href="{% url 'login' %}">Login</a></p>
+{% endif %} -->
+
+
+<!-- UPDATED CGPT FOR LOGOUT BUTTON AND WELCOME MESSAGE -->
+
+<html>
+<head><title>Patient List</title></head>
+<body>
+
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}! <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+
+    <h1>All Patients</h1>
+    <a href="{% url 'patient_create' %}">Add New Patient</a>
+    <table border="1">
+        <tr><th>Name</th><th>Email</th><th>Contact</th></tr>
+        {% for patient in patients %}
+        <tr>
+            <td>{{ patient.First_name }} {{ patient.Last_name }}</td>
+            <td>{{ patient.Email }}</td>
+            <td>{{ patient.Contact_number }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No patients found.</td></tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
+
+
+
